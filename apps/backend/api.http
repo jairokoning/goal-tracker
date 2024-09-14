@@ -3,10 +3,10 @@ POST http://localhost:3333/goals
 Content-Type: application/json
 
 {
-  "title": "Teste",
-  "desiredWeeklyFrequency": 5
+  "title": "Estudar NodeJS",
+  "desiredWeeklyFrequency": 3
 }
 
 ########################################
 
-GET http://localhost:3333/goals
+GET http://localhost:3333/pending-goals

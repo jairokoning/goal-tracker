@@ -7,6 +7,7 @@ import {
 import z from "zod";
 import CreateGoal from "../usecases/create-goal";
 import GoalDrizzleRepository from "../repositories/goal-drizzle-repository";
+import GetWeekPendingGoals from "../queries/get-week-pending-goals";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -34,6 +35,12 @@ app.post(
 		await usecase.execute({ title, desiredWeeklyFrequency });
 	},
 );
+
+app.get("/pending-goals", async () => {
+	const getWeekPendingGoals = new GetWeekPendingGoals();
+	const pendingGoals = await getWeekPendingGoals.execute();
+	return pendingGoals;
+});
 
 app.listen({ port: 3333 }).then(() => {
 	console.log("🚀🚀🚀 HTTP Server running on http://localhost:3333");
