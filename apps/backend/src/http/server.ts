@@ -8,15 +8,12 @@ import z from "zod";
 import CreateGoal from "../usecases/create-goal";
 import GoalDrizzleRepository from "../repositories/goal-drizzle-repository";
 import GetWeekPendingGoals from "../queries/get-week-pending-goals";
+import CompleteGoal from "../usecases/complete-goal";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
-
-app.get("/goals", async (request) => {
-	console.log("BLZ");
-});
 
 app.post(
 	"/goals",
@@ -41,6 +38,23 @@ app.get("/pending-goals", async () => {
 	const pendingGoals = await getWeekPendingGoals.execute();
 	return pendingGoals;
 });
+
+app.post(
+	"/goals/complete",
+	{
+		schema: {
+			body: z.object({
+				goalId: z.string(),
+			}),
+		},
+	},
+	async (request) => {
+		const { goalId } = request.body;
+		const repository = new GoalDrizzleRepository();
+		const usecase = new CompleteGoal(repository);
+		await usecase.execute(goalId);
+	},
+);
 
 app.listen({ port: 3333 }).then(() => {
 	console.log("🚀🚀🚀 HTTP Server running on http://localhost:3333");
