@@ -6289,10 +6289,17 @@ synckit@0.9.1:
     "@pkgr/core" "^0.1.0"
     tslib "^2.6.2"
 
-tailwind-merge@^2.5.2:
+tailwind-merge@^2.2.0, tailwind-merge@^2.5.2:
   version "2.5.2"
   resolved "https://registry.npmjs.org/tailwind-merge/-/tailwind-merge-2.5.2.tgz"
   integrity sha512-kjEBm+pvD+6eAwzJL2Bi+02/9LFLal1Gs61+QB7HvTfQQ0aXwC5LGT8PEt1gS0CWKktKe6ysPTAy3cBC5MeiIg==
+
+tailwind-variants@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.npmjs.org/tailwind-variants/-/tailwind-variants-0.2.1.tgz"
+  integrity sha512-2xmhAf4UIc3PijOUcJPA1LP4AbxhpcHuHM2C26xM0k81r0maAO6uoUSHl3APmvHZcY5cZCY/bYuJdfFa4eGoaw==
+  dependencies:
+    tailwind-merge "^2.2.0"
 
 tailwind@^4.0.0:
   version "4.0.0"
@@ -6327,7 +6334,7 @@ tailwind@^4.0.0:
     uuidv4 "3.0.1"
     ws "6.2.0"
 
-tailwindcss@^3.4.11:
+tailwindcss@*, tailwindcss@^3.4.11:
   version "3.4.11"
   resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-3.4.11.tgz"
   integrity sha512-qhEuBcLemjSJk5ajccN9xJFtM/h0AVCPaA6C92jNP+M2J8kX+eMJHI7R2HFKUvvAsMpcfLILMCFYSeDwpMmlUg==
@@ -6791,6 +6798,7 @@ wcwidth@^1.0.1:
   version "0.0.0"
   resolved "file:apps/web"
   dependencies:
+    "@radix-ui/react-dialog" "^1.1.1"
     "@radix-ui/react-progress" "^1.1.0"
     "@radix-ui/react-radio-group" "^1.2.0"
     lucide-react "^0.441.0"
