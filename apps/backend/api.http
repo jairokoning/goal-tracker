@@ -17,5 +17,9 @@ POST http://localhost:3333/goals/complete
 Content-Type: application/json
 
 {
-  "goalId": "fruheu3zclqc057vf7iql8ox"
+  "goalId": "kjsjzxxnirdwacx2oyaqgikg"
 }
+
+########################################
+
+GET http://localhost:3333/goals/summary
