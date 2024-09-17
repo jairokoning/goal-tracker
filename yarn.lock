@@ -6177,6 +6177,11 @@ synckit@0.9.1:
     "@pkgr/core" "^0.1.0"
     tslib "^2.6.2"
 
+tailwind-merge@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.npmjs.org/tailwind-merge/-/tailwind-merge-2.5.2.tgz"
+  integrity sha512-kjEBm+pvD+6eAwzJL2Bi+02/9LFLal1Gs61+QB7HvTfQQ0aXwC5LGT8PEt1gS0CWKktKe6ysPTAy3cBC5MeiIg==
+
 tailwind@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/tailwind/-/tailwind-4.0.0.tgz"
@@ -6659,6 +6664,7 @@ wcwidth@^1.0.1:
   version "0.0.0"
   resolved "file:apps/web"
   dependencies:
+    "@radix-ui/react-progress" "^1.1.0"
     "@radix-ui/react-radio-group" "^1.2.0"
     lucide-react "^0.441.0"
     react "^18.3.1"
