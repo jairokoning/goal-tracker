@@ -38,6 +38,7 @@ export default class GetWeekSummary {
             lte(goalCompletions.createdAt, lastDayOfWeek)
           )
         )
+        .orderBy(desc(goalCompletions.createdAt))
     )
 
     const goalsCompletedByWeekDay = db.$with('goals_completed_by_week_day').as(
@@ -79,9 +80,11 @@ export default class GetWeekSummary {
             Number
           ),
         goalsPerDay: sql<GoalsPerDay>`
-          JSON_OBJECT_AGG(
-            ${goalsCompletedByWeekDay.completedAtDate},
-            ${goalsCompletedByWeekDay.completions}
+          COALESCE(
+            JSON_OBJECT_AGG(
+              ${goalsCompletedByWeekDay.completedAtDate},
+              ${goalsCompletedByWeekDay.completions}
+            ), '{}'
           )
         `,
       })
