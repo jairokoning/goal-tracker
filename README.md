@@ -1,81 +1,77 @@
-# Turborepo starter
+# 🎯 Goal Tracker
+Bem-vindo ao repositório do **Goal Tracker!** Este projeto foi desenvolvido para fornecer uma solução eficiente e moderna para o **gerenciamento de metas diárias**. 
+Neste sistema é possível:
+- Cadastrar novas metas
+- Selecionar as que foram executadas no dia
+- Acompanhar o resumo semanal das metas completadas
 
-This is an official starter Turborepo.
+![Logo](presentation.gif)
 
-## Using this example
+## 💻 Tecnologias utilizadas
+- ### Turborepo
+  - Gerenciador de múltiplos pacotes em um único repositório, permitindo um desenvolvimento mais organizado e facilitando a manutenção.
 
-Run the following command:
+- ### Backend
+  - **Node.js**: Ambiente de execução JavaScript no lado do servidor, que permite construir aplicações escaláveis e de alto desempenho usando uma arquitetura baseada em eventos e um modelo de I/O não bloqueante.
+  - **Typescript**: Superset do JavaScript que adiciona tipagem estática ao código, proporcionando maior segurança e aprimorando o suporte a ferramentas de desenvolvimento em aplicações complexas.
+  - **Fastify**: Framework web para Node.js, altamente eficiente e rápido, oferecendo uma experiência de desenvolvimento simples e poderosa para construir APIs e aplicações web.
+  - **Zod**: Biblioteca para validação e parsing de esquemas, permitindo definir, validar e inferir tipos de forma segura e declarativa.
+  - **Drizzle ORM**: Biblioteca de mapeamento objeto-relacional (ORM) para TypeScript e JavaScript, que fornece uma interface simples e flexível para interagir com bancos de dados SQL de forma tipada e segura, incluindo suporte para Common Table Expression (CTE).
+  - **PostgreSQL**: Banco de dados relacional utilizado para armazenar de forma segura e eficiente todos os dados da aplicação.
+  - **Docker**: Plataforma para desenvolvimento, envio e execução de aplicações e banco de dados em contêineres.
 
-```sh
-npx create-turbo@latest
-```
+- ### Frontend
+  - **React.js:** Biblioteca Javascript baseada em componentes para construir interfaces de usuário reativas, dinâmicas e escaláveis.
+  - **Vite**: Build tool moderno e rápido que oferece um ambiente de desenvolvimento ágil, com carregamento instantâneo de módulos e build otimizado para produção.
+  - **Typescript**: Superset do JavaScript que adiciona tipagem estática ao código, proporcionando maior segurança e aprimorando o suporte a ferramentas de desenvolvimento em aplicações complexas.
+  - **React Hook Form**: Biblioteca para gerenciamento de formulários, que facilita a manipulação de dados e validação de entradas utilizando hooks de forma eficiente e minimalista.
+  - **Zod**: Biblioteca para validação e parsing de esquemas, permitindo definir, validar e inferir tipos de forma segura e declarativa.
+  - **React Query**: Biblioteca para gerenciamento de estado assíncrono, que facilita o fetching, caching, sincronização e atualização de dados remotos de forma eficiente.
+  - **Tailwind CSS:** Framework CSS utilitário para criação rápida de interfaces de usuário com estilos pré-definidos e altamente personalizáveis.
+  - **Radix UI**: Biblioteca de componentes acessíveis e personalizáveis para interfaces de usuário em React, projetada para oferecer usabilidade e estilo flexível.
 
-## What's inside?
+## 🏛️ Arquitetura e Design Patterns
+- **Repository Pattern**: Design pattern de repositório para isolar a lógica de acesso a dados, promovendo uma camada de abstração entre a aplicação e a persistência dos dados. Isso facilita a manutenção e a troca do mecanismo de persistência, se necessário.
 
-This Turborepo includes the following packages/apps:
+## ⚙️ Instalação e Configuração
+1. Clone este repositório:
+    ```sh
+      git clone https://github.com/jairokoning/goal-tracker.git
+    ```
+2. Navegue até o diretório do projeto:
+    ```sh
+      cd seu-diretorio/goal-tracker
+    ```
+3. Instale as dependências:
+    ```sh
+      yarn install
+    ```
+4. Configure as variáveis de ambiente no arquivo `.env` utilizando como exemplo o arquivo `.env.example` (no frontend e backend)
 
-### Apps and Packages
+5. Acesse a pasta apps/backend e inicie os serviços Docker (você precisa ter o Docker instalado em sua maquina):
+    ```sh
+      docker-compose up -d
+    ```
+6. Ainda na pasta apps/backend execute as migrations do Drizzle para criar as tabelas no banco de dados:
+    ```sh
+      npx drizzle-kit migrate
+    ```
+7. Na pasta raiz do projeto, inicie a aplicação (front e back):
+    ```sh
+      yarn run dev
+    ```
+8. Você poderá acessar a aplicação em: http://localhost:5173
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## 🪜 Próximos passos
+- [ ] Transformar a aplicação em um SaaS
+  - [ ] Cadastro de usuários
+  - [ ] Autenticação
+- [ ] Testes automatizados
+- [ ] Clean Architecture + DDD + SOLID
 
-### Utilities
+## ⌨️ Contribuição
+Contribuições e sugestões são bem-vindas! Sinta-se à vontade para abrir issues e pull requests para melhorias e correções.
 
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+## 💳 Licença
+Este projeto está licenciado sob a [licença MIT](./LICENSE).
