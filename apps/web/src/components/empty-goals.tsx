@@ -7,7 +7,10 @@ import { Button } from './ui/button'
 export function EmptyGoals() {
   return (
     <div className="h-screen flex flex-col items-center justify-center gap-8">
-      <img src={logo} alt="Goal Tracker" />
+      <div className="flex gap-2 items-center">
+        <img src={logo} alt="Goal Tracker" />
+        <span>Goal Tracker</span>
+      </div>
       <img src={letsStart} alt="Goal Tracker" />
       <p className="text-zinc-300 leading-relaxed max-w-80 text-center">
         Você ainda não cadastrou nenhuma meta, que tal cadastrar uma agora
